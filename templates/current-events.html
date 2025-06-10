@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+    <head>
+        <link rel="stylesheet" href="{{url_for('static', filename='/style.css')}}">
+        <title>main</title>
+    </head>
+    <body>
+        <h1>Current Events</h1>
+        {% extends 'base.html' %}
+        {% block content %}
+
+        {% for post in posts %}
+        <div class="row1">
+            <div class="box1">
+                <h1>{{ post['title'] }}</h1>
+                <b><a class="link2" href="{{ post['link'] }}" target="_blank">Link to article</a></b>
+                <h2>{{ post['published'] }}</h2>
+                <h2>{{ post['source']['href'] }}</h2>
+                <h2>{{ post['source']['title'] }}</h2>
+            </div>
+        </div>
+        {% endfor %}
+        {% endblock %}
+    </body>
+</html>

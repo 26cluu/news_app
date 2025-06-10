@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+    <head>
+        <link rel="stylesheet" href="{{url_for('static', filename='/style.css')}}">
+        <title>main</title>
+    </head>
+    <body>
+        <h1>Top News</h1>
+        {% extends 'base.html' %}
+        {% block content %}
+
+        <div class="home-page">
+            <div class="first-box row1">
+                <h1>{{ posts[0]['title'] }}</h1>
+                <b><a class="link2" href="{{ posts[0]['link'] }}" target="_blank">Link to article</a></b>
+                <h2>{{ posts[0]['published'] }}</h2>
+                <h2>{{ posts[0]['source']['href'] }}</h2>
+                <h2>{{ posts[0]['source']['title'] }}</h2>
+            </div>
+
+            <div class="box2">
+                <div class="row1 box1">
+                    <h1>{{ posts[1]['title'] }}</h1>
+                    <b><a class="link2" href="{{ posts[1]['link'] }}" target="_blank">Link to article</a></b>
+                    <h2>{{ posts[1]['published'] }}</h2>
+                    <h2>{{ posts[1]['source']['href'] }}</h2>
+                    <h2>{{ posts[1]['source']['title'] }}</h2>
+                </div>
+
+                <div class="row1 box1">
+                    <h1>{{ posts[2]['title'] }}</h1>
+                    <b><a class="link2" href="{{ posts[2]['link'] }}" target="_blank">Link to article</a></b>
+                    <h2>{{ posts[2]['published'] }}</h2>
+                    <h2>{{ posts[2]['source']['href'] }}</h2>
+                    <h2>{{ posts[2]['source']['title'] }}</h2>
+                </div>
+            </div>
+
+            {% for x in range(3, 9) %}
+            <div class="row1">
+                <div class="box1">
+                    <h1>{{ posts[x]['title'] }}</h1>
+                    <b><a class="link2" href="{{ posts[x]['link'] }}" target="_blank">Link to article</a></b>
+                    <h2>{{ posts[x]['published'] }}</h2>
+                    <h2>{{ posts[x]['source']['href'] }}</h2>
+                    <h2>{{ posts[x]['source']['title'] }}</h2>
+                </div>
+            </div>
+            {% endfor %}
+            {% endblock %}
+        </div>
+    </body>
+</html>
